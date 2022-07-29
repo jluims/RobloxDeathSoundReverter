@@ -1,7 +1,22 @@
+using System.Runtime.InteropServices;
 namespace RobloxDeathSoundReverter
 {
     public partial class Form1 : Form
     {
+
+        [System.Runtime.InteropServices.DllImport("user32.dll")]
+        public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
+        [System.Runtime.InteropServices.DllImport("user32.dll")]
+        public static extern bool ReleaseCapture();
+
+        private void Form1_MouseDown(object sender, System.Windows.Forms.MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                ReleaseCapture();
+                SendMessage(Handle, 0xA1, 0x2, 0);
+            }
+        }
 
         string? robloxDir;
         bool newOof;
@@ -9,6 +24,7 @@ namespace RobloxDeathSoundReverter
         public Form1()
         {
             InitializeComponent();
+            this.CenterToScreen();
             robloxDir = RobloxUtils.GetRobloxDirectory();
             newOof = robloxDir != null ? RobloxUtils.HasNewOof(robloxDir) : false;
 
@@ -40,6 +56,16 @@ namespace RobloxDeathSoundReverter
             newOof = !newOof;
             statusLabel.Text = "Status: " + (newOof ? "new oof" : "old oof");
             MessageBox.Show("OOF sound changed!", "Success", MessageBoxButtons.OK);
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
