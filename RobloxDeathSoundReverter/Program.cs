@@ -12,7 +12,7 @@ namespace RobloxDeathSoundReverter
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
-            Application.Run(new Form1());
+            Application.Run(new MainForm());
         }
     }
 }

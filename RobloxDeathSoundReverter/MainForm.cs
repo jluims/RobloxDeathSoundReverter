@@ -1,7 +1,7 @@
 using System.Runtime.InteropServices;
 namespace RobloxDeathSoundReverter
 {
-    public partial class Form1 : Form
+    public partial class MainForm : Form
     {
 
         [System.Runtime.InteropServices.DllImport("user32.dll")]
@@ -9,19 +9,10 @@ namespace RobloxDeathSoundReverter
         [System.Runtime.InteropServices.DllImport("user32.dll")]
         public static extern bool ReleaseCapture();
 
-        private void Form1_MouseDown(object sender, System.Windows.Forms.MouseEventArgs e)
-        {
-            if (e.Button == MouseButtons.Left)
-            {
-                ReleaseCapture();
-                SendMessage(Handle, 0xA1, 0x2, 0);
-            }
-        }
-
         string? robloxDir;
         bool newOof;
 
-        public Form1()
+        public MainForm()
         {
             InitializeComponent();
             this.CenterToScreen();
@@ -34,7 +25,16 @@ namespace RobloxDeathSoundReverter
             }
         }
 
-        private async void button1_Click(object sender, EventArgs e)
+        private void MainForm_MouseDown(object sender, System.Windows.Forms.MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                ReleaseCapture();
+                SendMessage(Handle, 0xA1, 0x2, 0);
+            }
+        }
+
+        private async void changeButton_Click(object sender, EventArgs e)
         {
             if (robloxDir == null)
             {
@@ -61,11 +61,6 @@ namespace RobloxDeathSoundReverter
         private void button1_Click_1(object sender, EventArgs e)
         {
             Application.Exit();
-        }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }
