@@ -80,7 +80,7 @@
             this.xButton.TabIndex = 3;
             this.xButton.Text = "x";
             this.xButton.UseVisualStyleBackColor = false;
-            this.xButton.Click += new System.EventHandler(this.button1_Click_1);
+            this.xButton.Click += new System.EventHandler(this.exitButton_Click);
             // 
             // MainForm
             // 
@@ -96,7 +96,6 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "MainForm";
             this.Text = "Roblox OOF Reverter";
-            this.MouseDown += MainForm_MouseDown;
             this.ResumeLayout(false);
             this.PerformLayout();
 

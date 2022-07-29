@@ -55,10 +55,10 @@ namespace RobloxDeathSoundReverter
 
             newOof = !newOof;
             statusLabel.Text = "Status: " + (newOof ? "new oof" : "old oof");
-            MessageBox.Show("OOF sound changed!", "Success", MessageBoxButtons.OK);
+            //MessageBox.Show("OOF sound changed!", "Success", MessageBoxButtons.OK);
         }
 
-        private void button1_Click_1(object sender, EventArgs e)
+        private void exitButton_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
